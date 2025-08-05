@@ -29,8 +29,8 @@ internal class ImageCompositor {
 
         val composedBitmap = createBitmap(templateParentView.width, templateParentView.height).also { bitmap ->
             val canvas = Canvas(bitmap)
-            canvas.drawBitmap(templateBitmap, 0f, 0f, null)
             canvas.drawBitmap(photoBitmap, 0f, 0f, null)
+            canvas.drawBitmap(templateBitmap, 0f, 0f, null)
         }
 
         return withContext(Dispatchers.IO) {
