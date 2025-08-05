@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Timestamp"
 include(":sample")
- 
+include(":timestamp")
