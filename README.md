@@ -48,7 +48,7 @@ dependencyResolutionManagement {
 
 ```gradle
 dependencies {
-    implementation 'com.github.JuhyeokLee97:Timestamp:v1.0.0'
+    implementation 'com.github.JuhyeokLee97:Timestamp:1.0.0'
 }
 ```
 
