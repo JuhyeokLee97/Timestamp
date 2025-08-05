@@ -70,7 +70,7 @@ class TimestampCameraView @JvmOverloads constructor(
         previewView = PreviewView(context).apply {
             scaleType = PreviewView.ScaleType.FILL_CENTER
         }
-        defaultTemplateBinding = DefaultTemplateBinding.inflate(LayoutInflater.from(context), this, true)
+        defaultTemplateBinding = DefaultTemplateBinding.inflate(LayoutInflater.from(context), this, false)
 
         addView(previewView, LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT)
         addView(defaultTemplateBinding.root, LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT)
