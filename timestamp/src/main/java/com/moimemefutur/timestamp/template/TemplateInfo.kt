@@ -16,6 +16,7 @@ data class TemplateInfo(
     val name: String,
     val description: String = "",
     val thumbnailUrl: String? = null,
+    val thumbnailRes: Int? = null,
     @LayoutRes val layoutRes: Int? = null,
     val configureView: ((View) -> Unit)? = null,
     val configureBinding: ((ViewBinding) -> Unit)? = null,
@@ -33,7 +34,8 @@ class TemplateConfig {
     var id: String = ""
     var name: String = ""
     var description: String = ""
-    private var thumbnailUrl: String? = null
+    var thumbnailUrl: String? = null
+    var thumbnailRes: Int? = null
     @LayoutRes var layoutRes: Int? = null
     private var configureView: ((View) -> Unit)? = null
     private var configureBinding: ((ViewBinding) -> Unit)? = null
@@ -55,7 +57,7 @@ class TemplateConfig {
     }
 
     internal fun build(): TemplateInfo {
-        require(id.isEmpty()) { "Template id is required" }
+        require(id.isNotEmpty()) { "Template id is required" }
         require(name.isNotEmpty()) { "Template name is required" }
         require(layoutRes != null || bindingInflater != null) { "Template layoutRes or bindingInflater is required" }
 
@@ -64,6 +66,7 @@ class TemplateConfig {
             name = name,
             description = description,
             thumbnailUrl = thumbnailUrl,
+            thumbnailRes = thumbnailRes,
             layoutRes = layoutRes,
             configureView = configureView,
             configureBinding = configureBinding,

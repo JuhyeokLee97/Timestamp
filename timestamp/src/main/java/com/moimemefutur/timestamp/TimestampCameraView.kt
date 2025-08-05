@@ -6,9 +6,7 @@ import android.net.Uri
 import android.util.AttributeSet
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.widget.FrameLayout
-import androidx.annotation.LayoutRes
 import androidx.annotation.RequiresPermission
 import androidx.camera.core.Camera
 import androidx.camera.core.CameraSelector
@@ -153,6 +151,7 @@ class TimestampCameraView @JvmOverloads constructor(
 
         externalTemplates.clear()
         externalTemplates.addAll(templates)
+        clearCurrentTemplate()
     }
 
     fun selectTemplate(templateId: String) {
@@ -164,9 +163,7 @@ class TimestampCameraView @JvmOverloads constructor(
                 }
                 
                 TemplateType.LAYOUT_RESOURCE -> {
-                     setTemplate(template.layoutRes!!) { view ->
-                         template.configureView?.invoke(view)
-                     }
+                     setTemplate(template)
                 }
             }
         } else {
@@ -205,19 +202,6 @@ class TimestampCameraView @JvmOverloads constructor(
         currentTemplateBinding = null
         currentTemplateId = template.id
 
-    }
-
-    private fun setTemplate(@LayoutRes layoutRes: Int, config: (View) -> Unit = {}) {
-        clearCurrentTemplate()
-        hideDefaultTemplate()
-
-        val templateView = LayoutInflater.from(context).inflate(layoutRes, this, false)
-        config(templateView)
-
-        addView(templateView)
-
-        currentTemplateBinding = null
-        currentTemplateId = null
     }
 
     @RequiresPermission(Manifest.permission.CAMERA)
