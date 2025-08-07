@@ -8,7 +8,7 @@ android {
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.moimemefutur.timestamp"
+        applicationId = "com.moimemefutur.timestamp.sample"
         minSdk = 29
         targetSdk = 36
         versionCode = 1
@@ -44,7 +44,7 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
 
-    implementation(project(":timestamp"))
+    implementation("com.github.JuhyeokLee97:Timestamp:1.0.3")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
