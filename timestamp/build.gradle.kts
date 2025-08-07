@@ -10,8 +10,6 @@ android {
 
     defaultConfig {
         minSdk = 29
-        versionCode = 3
-        versionName = "1.0.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
